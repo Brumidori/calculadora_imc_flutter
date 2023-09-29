@@ -1,23 +1,28 @@
-class Imc {
-  double _weight = 0.0;
-  double _height = 0.0;
-  double _imc = 0.0;
+class IMC {
+  final int? id;
+  final double? weigth;
+  final double? height;
+  final String? result;
 
-  Imc(this._weight, this._height, this._imc);
+  const IMC({this.id, this.weigth, this.height, this.result});
 
-  double get weight => _weight;
-  double get height => _height;
-  double get imc => _imc;
-
-  set weight(double weight) {
-    _weight = weight;
+  factory IMC.fromJson(Map<String, dynamic> json) {
+    return IMC(
+      id: json['id'],
+      weigth: json['weigth'],
+      height: json['height'],
+      result: json['result'],
+    );
   }
 
-  set height(double height) {
-    _height = height;
-  }
+  get weight => null;
 
-  set imc(double imc) {
-    _imc = imc;
+  IMC copyWith({int? id, double? weigth, double? height, String? result}) {
+    return IMC(
+      id: id ?? this.id,
+      weigth: weigth ?? this.weigth,
+      height: height ?? this.height,
+      result: result ?? this.result,
+    );
   }
 }

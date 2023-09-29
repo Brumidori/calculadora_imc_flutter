@@ -1,14 +1,9 @@
 import 'package:calculadoraimcflutter/model/imc.dart';
 
-class ImcRepository {
-  final List<Imc> _imc = [];
-
-  Future<void> add(Imc imc) async {
-    Future.delayed(const Duration(milliseconds: 100));
-    _imc.add(imc);
-  }
-
-  List<Imc> imcList() {
-    return _imc;
-  }
+abstract interface class IMCRepository {
+  Future<void> addHeight(IMC imc);
+  Future<double> getHeight();
+  Future<void> addIMC(IMC imc);
+  Future<void> removeIMC(IMC imc);
+  Future<List<IMC>> getIMCs();
 }
